@@ -39,21 +39,13 @@ namespace Northwind_tests
         {                   
             driver.FindElement(By.XPath("//a[contains(text(),'All Products')]")).Click();
             driver.FindElement(By.XPath("//a[contains(text(),'Create new')]")).Click();
-            driver.FindElement(By.XPath("//input[@id='ProductName']")).Click();
             driver.FindElement(By.XPath("//input[@id='ProductName']")).SendKeys("English tea");
-            driver.FindElement(By.XPath("//select[@id='CategoryId']")).Click();
             driver.FindElement(By.XPath("//select[@id='CategoryId']")).SendKeys("Beverages");
-            driver.FindElement(By.XPath("//select[@id='SupplierId']")).Click();
             driver.FindElement(By.XPath("//select[@id='SupplierId']")).SendKeys("Mayumi's");
-            driver.FindElement(By.XPath("//input[@id='UnitPrice']")).Click();
             driver.FindElement(By.XPath("//input[@id='UnitPrice']")).SendKeys("500");
-            driver.FindElement(By.XPath("//input[@id='QuantityPerUnit']")).Click();
             driver.FindElement(By.XPath("//input[@id='QuantityPerUnit']")).SendKeys("15");
-            driver.FindElement(By.XPath("//input[@id='UnitsInStock']")).Click();
             driver.FindElement(By.XPath("//input[@id='UnitsInStock']")).SendKeys("10");
-            driver.FindElement(By.XPath("//input[@id='UnitsOnOrder']")).Click();
             driver.FindElement(By.XPath("//input[@id='UnitsOnOrder']")).SendKeys("5");
-            driver.FindElement(By.XPath("//input[@id='ReorderLevel']")).Click();
             driver.FindElement(By.XPath("//input[@id='ReorderLevel']")).SendKeys("1");
             driver.FindElement(By.XPath("//input[@type='submit']")).Click();
             var additem = driver.FindElement(By.XPath("//h2[contains(.,'All Products')]"));

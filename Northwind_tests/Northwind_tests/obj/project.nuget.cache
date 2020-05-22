@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zpDsZPgJb0ahPLk7Lrp81rHTBfFK+TMoPL7P6TeE+qJIb6RWLNwoNhFZ2ZkcLZ6Q4QlL25/5SRfa45v3tlQ98A==",
+  "dgSpecHash": "6wNmT1TOYHkQXskNYBgH4R3XuViUOHOsidM/JddxjRraWGQGQqbnGBSIdEX1UtnG028N7Ucg7mpOVshh72klIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dmitry\\source\\repos\\Northwind_tests\\Northwind_tests\\Northwind_tests.csproj",
+  "projectFilePath": "C:\\Users\\Dmitry\\source\\repos\\Selenium_Webdriver\\Northwind_tests\\Northwind_tests\\Northwind_tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dmitry\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\Dmitry\\.nuget\\packages\\microsoft.codecoverage\\16.4.0\\microsoft.codecoverage.16.4.0.nupkg.sha512",

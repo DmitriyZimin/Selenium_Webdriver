@@ -4645,11 +4645,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dmitry\\source\\repos\\Northwind_tests\\Northwind_tests\\Northwind_tests.csproj",
+      "projectUniqueName": "C:\\Users\\Dmitry\\source\\repos\\Selenium_Webdriver\\Northwind_tests\\Northwind_tests\\Northwind_tests.csproj",
       "projectName": "Northwind_tests",
-      "projectPath": "C:\\Users\\Dmitry\\source\\repos\\Northwind_tests\\Northwind_tests\\Northwind_tests.csproj",
+      "projectPath": "C:\\Users\\Dmitry\\source\\repos\\Selenium_Webdriver\\Northwind_tests\\Northwind_tests\\Northwind_tests.csproj",
       "packagesPath": "C:\\Users\\Dmitry\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dmitry\\source\\repos\\Northwind_tests\\Northwind_tests\\obj\\",
+      "outputPath": "C:\\Users\\Dmitry\\source\\repos\\Selenium_Webdriver\\Northwind_tests\\Northwind_tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dmitry\\AppData\\Roaming\\NuGet\\NuGet.Config",
