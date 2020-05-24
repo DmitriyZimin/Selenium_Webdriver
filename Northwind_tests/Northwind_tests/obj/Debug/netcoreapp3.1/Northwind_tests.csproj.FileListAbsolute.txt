@@ -191,8 +191,9 @@ C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\
 C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.csprojAssemblyReference.cache
 C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.AssemblyInfoInputs.cache
 C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.AssemblyInfo.cs
-C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.csproj.CoreCompileInputs.cache
 C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.csproj.CopyComplete
 C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.dll
 C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.pdb
 C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.genruntimeconfig.cache
+C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\bin\Debug\netcoreapp3.1\SeleniumExtras.PageObjects.dll
+C:\Users\Dmitry\source\repos\Selenium_Webdriver\Northwind_tests\Northwind_tests\obj\Debug\netcoreapp3.1\Northwind_tests.csproj.CoreCompileInputs.cache

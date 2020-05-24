@@ -8,87 +8,106 @@ namespace Northwind_tests
     public class Tests
     {
         private IWebDriver driver;
+        private LoginPage loginPage;
+        private HomePage homePage;
+        private AllproductsPage allproductsPage;
+        private ProductPage productPage;
+        private LogoutPage logoutPage;
+        private string baseUrl;
+        private const string login = "user";
+        private const string password = "user";
+        private const string name = "English tea";
+        private const string category = "Beverages";
+        private const string category1 = "1";
+        private const string supplier = "Mayumi's";
+        private const string supplier1 = "6";
+        private const string price = "500";
+        private const string price1 = "500,0000";
+        private const string quantity = "15";
+        private const string instock = "10";
+        private const string onorder = "5";
+        private const string reorder = "1";
+        private const string HeaderAllproducts = "All Products";
+        private const string HeaderHomePage = "Home page";
+        private const string HeaderLogin = "Login";
 
         [OneTimeSetUp]
         public void Setup()
         {
             driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("http://localhost:5000");
+            baseUrl = "http://localhost:5000";
+            driver.Navigate().GoToUrl(baseUrl);
             driver.Manage().Window.Maximize();
                         
         }
 
         [SetUp]
-        public void Setup1()
+        public void Authorization()
         {
-            driver.FindElement(By.XPath("//input[@id='Name']")).SendKeys("user");
-            driver.FindElement(By.XPath("//input[@id='Password']")).SendKeys("user");
-            driver.FindElement(By.XPath("//input[@type='submit']")).Click();
-
+            loginPage = new LoginPage(driver);
+            loginPage.AuthorizationPage(login,password);
+                         
         }
 
         [Test]
         public void Login()
         {
-            var login = driver.FindElement(By.XPath("//h2[contains(.,'Home page')]"));
-            Assert.AreEqual("Home page", login.Text);
+            homePage = new HomePage(driver);
+            Assert.AreEqual(HeaderHomePage, homePage.GetHomepageheader());
         }
 
         [Test]
-        public void AddVerifyItem()
-        {                   
-            driver.FindElement(By.XPath("//a[contains(text(),'All Products')]")).Click();
-            driver.FindElement(By.XPath("//a[contains(text(),'Create new')]")).Click();
-            driver.FindElement(By.XPath("//input[@id='ProductName']")).SendKeys("English tea");
-            driver.FindElement(By.XPath("//select[@id='CategoryId']")).SendKeys("Beverages");
-            driver.FindElement(By.XPath("//select[@id='SupplierId']")).SendKeys("Mayumi's");
-            driver.FindElement(By.XPath("//input[@id='UnitPrice']")).SendKeys("500");
-            driver.FindElement(By.XPath("//input[@id='QuantityPerUnit']")).SendKeys("15");
-            driver.FindElement(By.XPath("//input[@id='UnitsInStock']")).SendKeys("10");
-            driver.FindElement(By.XPath("//input[@id='UnitsOnOrder']")).SendKeys("5");
-            driver.FindElement(By.XPath("//input[@id='ReorderLevel']")).SendKeys("1");
-            driver.FindElement(By.XPath("//input[@type='submit']")).Click();
-            var additem = driver.FindElement(By.XPath("//h2[contains(.,'All Products')]"));
-            Assert.AreEqual("All Products", additem.Text);
-                                
-            driver.FindElement(By.XPath("//a[contains(text(),'English tea')]")).Click();
-            var ProductName = driver.FindElement(By.XPath("//input[@id='ProductName']"));
-            Assert.AreEqual(ProductName.GetAttribute("value"), "English tea");
-            var CategoryId = driver.FindElement(By.XPath("//select[@id='CategoryId']"));
-            Assert.AreEqual(CategoryId.GetAttribute("value"), "1");
-            var SupplierId = driver.FindElement(By.XPath("//select[@id='SupplierId']"));
-            Assert.AreEqual(SupplierId.GetAttribute("value"), "6");
-            var UnitPrice = driver.FindElement(By.XPath("//input[@id='UnitPrice']"));
-            Assert.AreEqual(UnitPrice.GetAttribute("value"), "500,0000");
-            var QuantityPerUnit = driver.FindElement(By.XPath("//input[@id='QuantityPerUnit']"));
-            Assert.AreEqual(QuantityPerUnit.GetAttribute("value"), "15");
-            var UnitsInStock = driver.FindElement(By.XPath("//input[@id='UnitsInStock']"));
-            Assert.AreEqual(UnitsInStock.GetAttribute("value"), "10");
-            var UnitsOnOrder = driver.FindElement(By.XPath("//input[@id='UnitsOnOrder']"));
-            Assert.AreEqual(UnitsOnOrder.GetAttribute("value"), "5");
-            var ReorderLevel = driver.FindElement(By.XPath("//input[@id='ReorderLevel']"));
-            Assert.AreEqual(ReorderLevel.GetAttribute("value"), "1");
-            var checkbox = driver.FindElement(By.XPath("//input[@type='checkbox']"));
-            Assert.AreEqual(checkbox.GetAttribute("value"), "true");
-                             
+        public void AddVerifyDeleteItem()
+        {
+            homePage = new HomePage(driver);
+            homePage.Allproducts();
+            allproductsPage = new AllproductsPage(driver);
+            allproductsPage.ProductEditingPage();
+            productPage = new ProductPage(driver);
+            productPage.AddingProduct(name, category, supplier, price, quantity, instock, onorder, reorder);
+            Assert.AreEqual(HeaderAllproducts, allproductsPage.GetAllproductsheader());
+
+            allproductsPage.ViewingItem();
+            Assert.AreEqual(name, productPage.ProductName());
+            Assert.AreEqual(category1, productPage.CategoryId());
+            Assert.AreEqual(supplier1, productPage.SupplierId());
+            Assert.AreEqual(price1, productPage.UnitPrice());
+            Assert.AreEqual(quantity, productPage.QuantityPerUnit());
+            Assert.AreEqual(instock, productPage.UnitsInStock());
+            Assert.AreEqual(onorder, productPage.UnitsOnOrder());
+            Assert.AreEqual(reorder, productPage.ReorderLevel());
+            productPage.Allproducts();
+
+            allproductsPage.DeletingItem();
+            
+        }
+
+        [Test]
+        public void ItemNotPresent()
+        {
+            homePage = new HomePage(driver);
+            homePage.Allproducts();
+            allproductsPage = new AllproductsPage(driver);
+            Assert.IsFalse(allproductsPage.CheckItemNotPresent());
+
         }
 
         [Test]
         public void Logout()
         {
-            driver.FindElement(By.XPath("//a[contains(text(),'Logout')]")).Click();
-            var logout = driver.FindElement(By.XPath("//h2[contains(.,'Login')]"));
-            Assert.AreEqual("Login", logout.Text);
-            driver.FindElement(By.XPath("//input[@id='Name']")).SendKeys("user");
-            driver.FindElement(By.XPath("//input[@id='Password']")).SendKeys("user");
-            driver.FindElement(By.XPath("//input[@type='submit']")).Click();
+            homePage = new HomePage(driver);
+            logoutPage = homePage.Logout();
+            Assert.AreEqual(HeaderLogin, logoutPage.GetLoginheader());
+            loginPage.AuthorizationPage(login, password);
 
         }
 
         [TearDown]
         public void TearDown1()
         {
-            driver.FindElement(By.XPath("//a[contains(text(),'Logout')]")).Click();
+            homePage = new HomePage(driver);
+            logoutPage = homePage.Logout();
+
         }
 
         [OneTimeTearDown]
@@ -99,5 +118,5 @@ namespace Northwind_tests
         }
 
     }
-      
+
 }
