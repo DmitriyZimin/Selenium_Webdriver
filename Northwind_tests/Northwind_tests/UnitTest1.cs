@@ -30,6 +30,7 @@ namespace Northwind_tests
         private const string HeaderAllproducts = "All Products";
         private const string HeaderHomePage = "Home page";
         private const string HeaderLogin = "Login";
+        private const string SelectItem = "English tea";
 
         [OneTimeSetUp]
         public void Setup()
@@ -78,7 +79,7 @@ namespace Northwind_tests
             Assert.AreEqual(reorder, productPage.ReorderLevel());
             productPage.Allproducts();
 
-            allproductsPage.DeletingItem();
+            allproductsPage.DeletingItem(SelectItem);
             
         }
 

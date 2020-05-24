@@ -33,9 +33,9 @@ namespace Northwind_tests
             return new ProductPage(driver);
         }
 
-        public AllproductsPage DeletingItem()
+        public AllproductsPage DeletingItem(string item)
         {
-            driver.FindElement(By.XPath("//a[contains(text(),'English tea')]/following::td[10]/a")).Click();
+            driver.FindElement(By.XPath($"//a[contains(text(), \"{item}\")]/following::td[10]/a")).Click();
             driver.SwitchTo().Alert().Accept();
             return new AllproductsPage(driver);
         }
