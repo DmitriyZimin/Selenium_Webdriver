@@ -9,8 +9,7 @@ namespace Northwind_tests
     class AllproductsPage
     {
         private IWebDriver driver;
-        private readonly By _Englishtea = By.XPath("//a[contains(text(),'English tea')]");
-
+        
         public AllproductsPage(IWebDriver driver)
         {
             this.driver = driver;
@@ -27,9 +26,9 @@ namespace Northwind_tests
             driver.FindElement(By.XPath("//a[contains(text(),'Create new')]")).Click();
             return new ProductPage(driver);
         }
-        public ProductPage ViewingItem()
+        public ProductPage ViewingItem(string item)
         {
-            driver.FindElement(By.XPath("//a[contains(text(),'English tea')]")).Click();
+            driver.FindElement(By.XPath($"//a[contains(text(), \"{item}\")]")).Click();
             return new ProductPage(driver);
         }
 
@@ -40,11 +39,11 @@ namespace Northwind_tests
             return new AllproductsPage(driver);
         }
 
-        public bool CheckItemNotPresent()
+        public bool CheckItemNotPresent(string item)
         {
             try
             {
-                driver.FindElement(_Englishtea);
+                driver.FindElement(By.XPath($"//a[contains(text(),\"{item}\")]"));
                 return true;
                
             }

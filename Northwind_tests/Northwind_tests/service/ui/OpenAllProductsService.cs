@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Northwind_tests.service.ui
 {
-    class ItemService
+    class OpenAllProductsService
     {
-        public static AllproductsPage OpenAllProducts(IWebDriver driver)
+        public static AllproductsPage Open(IWebDriver driver)
         {
             HomePage homePage = new HomePage(driver);
             return homePage.Allproducts();

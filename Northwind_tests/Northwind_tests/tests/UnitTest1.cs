@@ -7,41 +7,34 @@ namespace Northwind_tests
 {
     public class Tests : BaseTest
     {
-        private LoginPage loginPage;
         private HomePage homePage;
         private AllproductsPage allproductsPage;
         private ProductPage productPage;
         private LogoutPage logoutPage;              
         private ItemAdd item = new ItemAdd("English tea", "Beverages", "Mayumi's", "500", "15", "10", "5", "1");
         private ItemVerify checkitem = new ItemVerify("English tea", "1", "6", "500,0000", "15", "10", "5", "1");
-        private LoginPassword login = new LoginPassword("user", "user");
+        private LoginPassword user = new LoginPassword("user", "user");
         private Headers header = new Headers("All Products", "Home page", "Login");
 
         [SetUp]
         public void Authorization()
         {
-            loginPage = new LoginPage(driver);
-            loginPage.AuthorizationPage(login.selectLogin, login.selectPassword);
-
+            homePage = LoginService.Login(user, driver);
         }
 
         [Test]
         public void Login()
         {
-            homePage = new HomePage(driver);
             Assert.AreEqual(header.HomePage, homePage.GetHomepageheader());
         }
 
         [Test]
         public void AddVerifyDeleteItem()
         {
-            allproductsPage = ItemService.OpenAllProducts(driver);
-            allproductsPage.ProductEditingPage();
-            productPage = new ProductPage(driver);
-            productPage.AddingProduct(item.selectName, item.selectCategory, item.selectSupplier, item.selectPrice, item.selectQuantity, item.selectInstock, item.selectOnorder, item.selectReorder);
+            allproductsPage = NewItemService.Add(item, driver);
             Assert.AreEqual(header.Allproducts, allproductsPage.GetAllproductsheader());
 
-            allproductsPage.ViewingItem();
+            productPage = ItemViewingService.ViewItem(item.selectName, driver);
             Assert.AreEqual(checkitem.selectName, productPage.ProductName());
             Assert.AreEqual(checkitem.selectCategory, productPage.CategoryId());
             Assert.AreEqual(checkitem.selectSupplier, productPage.SupplierId());
@@ -50,17 +43,17 @@ namespace Northwind_tests
             Assert.AreEqual(checkitem.selectInstock, productPage.UnitsInStock());
             Assert.AreEqual(checkitem.selectOnorder, productPage.UnitsOnOrder());
             Assert.AreEqual(checkitem.selectReorder, productPage.ReorderLevel());
-            productPage.Allproducts();
+            allproductsPage = OpenAllProductsService.Open(driver);
 
-            allproductsPage.DeletingItem(item.selectName);
+            allproductsPage = DeleteItemService.DeleteItem(item.selectName, driver);
 
         }
 
         [Test]
         public void ItemNotPresent()
         {
-            allproductsPage = ItemService.OpenAllProducts(driver);
-            Assert.IsFalse(allproductsPage.CheckItemNotPresent());
+            allproductsPage = OpenAllProductsService.Open(driver);
+            Assert.IsFalse(allproductsPage.CheckItemNotPresent(item.selectName));
 
         }
 
@@ -69,7 +62,7 @@ namespace Northwind_tests
         {
             logoutPage = LogoutService.Logout(driver);
             Assert.AreEqual(header.Login, logoutPage.GetLoginheader());
-            loginPage.AuthorizationPage(login.selectLogin, login.selectPassword);
+            homePage = LoginService.Login(user, driver);
 
         }
 
