@@ -15,18 +15,18 @@ namespace Northwind_tests.tests
         [OneTimeSetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
-            baseUrl = "http://localhost:5000";
-            driver.Navigate().GoToUrl(baseUrl);
-            driver.Manage().Window.Maximize();
+            //driver = new ChromeDriver();
+            //baseUrl = "http://localhost:5000";
+            //driver.Navigate().GoToUrl(baseUrl);
+            //driver.Manage().Window.Maximize();
 
         }
 
         [OneTimeTearDown]
         public void TearDown()
         {
-            driver.Close();
-            driver.Quit();
+            //driver.Close();
+            //driver.Quit();
         }
     }
 }

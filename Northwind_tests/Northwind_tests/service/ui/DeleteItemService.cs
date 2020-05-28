@@ -7,11 +7,11 @@ namespace Northwind_tests.service.ui
 {
     class DeleteItemService
     {
-        public static AllproductsPage DeleteItem(string item, IWebDriver driver)
-        {
-            AllproductsPage allproductsPage = new AllproductsPage(driver);
-            return allproductsPage.DeletingItem(item);
+        //public static AllproductsPage DeleteItem(string item, IWebDriver driver)
+        //{
+        //    AllproductsPage allproductsPage = new AllproductsPage(driver);
+        //    return allproductsPage.DeletingItem(item);
 
-        }
+        //}
     }
 }

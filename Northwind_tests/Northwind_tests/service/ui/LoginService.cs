@@ -8,11 +8,11 @@ namespace Northwind_tests.service.ui
 {
     class LoginService
     {
-        public static HomePage Login(LoginPassword user, IWebDriver driver)
-        {
-            LoginPage loginPage = new LoginPage(driver);
-            return loginPage.AuthorizationPage(user.selectLogin, user.selectPassword);
+        //public static HomePage Login(LoginPassword user, IWebDriver driver)
+        //{
+        //    LoginPage loginPage = new LoginPage(driver);
+        //    return loginPage.AuthorizationPage(user.selectLogin, user.selectPassword);
                         
-        }
+        //}
     }
 }

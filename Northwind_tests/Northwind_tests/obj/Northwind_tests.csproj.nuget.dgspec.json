@@ -52,11 +52,13 @@
             },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.4.0, )"
+              "version": "[16.6.1, )"
             },
             "NUnit3TestAdapter": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.15.1, )"
+              "version": "[3.16.1, )"
             },
             "Selenium.Support": {
               "target": "Package",
@@ -69,6 +71,22 @@
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
               "version": "[83.0.4103.3900, )"
+            },
+            "SpecFlow": {
+              "target": "Package",
+              "version": "[3.1.97, )"
+            },
+            "SpecFlow.NUnit": {
+              "target": "Package",
+              "version": "[3.1.97, )"
+            },
+            "SpecFlow.NUnit.Runners": {
+              "target": "Package",
+              "version": "[3.1.97, )"
+            },
+            "SpecFlow.Tools.MsBuild.Generation": {
+              "target": "Package",
+              "version": "[3.1.97, )"
             },
             "nunit": {
               "target": "Package",

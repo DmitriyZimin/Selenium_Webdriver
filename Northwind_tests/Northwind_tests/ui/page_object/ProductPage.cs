@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Northwind_tests.business_object;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
@@ -22,16 +23,65 @@ namespace Northwind_tests
         private IWebElement UnitsOnOrderInput => driver.FindElement(By.XPath("//input[@id='UnitsOnOrder']"));
         private IWebElement ReorderLevelInput => driver.FindElement(By.XPath("//input[@id='ReorderLevel']"));
         
-        public AllproductsPage AddingProduct(string name, string category, string supplier, string price, string quantity, string instock, string onorder, string reorder)
+        public /*AllproductsPage*/ ProductPage AddingName(ItemAdd item)
         {
-            ProductNameInput.SendKeys(name);
-            CategoryIdInput.SendKeys(category);
-            SupplierIdInput.SendKeys(supplier);
-            UnitPriceInput.SendKeys(price);
-            QuantityPerUnitInput.SendKeys(quantity);
-            UnitsInStockInput.SendKeys(instock);
-            UnitsOnOrderInput.SendKeys(onorder);
-            ReorderLevelInput.SendKeys(reorder);
+            ProductNameInput.SendKeys(item.selectName);
+            //CategoryIdInput.SendKeys(item.selectCategory);
+            //SupplierIdInput.SendKeys(item.selectSupplier);
+            //UnitPriceInput.SendKeys(item.selectPrice);
+            //QuantityPerUnitInput.SendKeys(item.selectQuantity);
+            //UnitsInStockInput.SendKeys(item.selectInstock);
+            //UnitsOnOrderInput.SendKeys(item.selectOnorder);
+            //ReorderLevelInput.SendKeys(item.selectReorder);
+            //new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
+            //return new AllproductsPage(driver);
+            return this;
+        }
+
+        public ProductPage AddingCategory(ItemAdd item)
+        {
+            CategoryIdInput.SendKeys(item.selectCategory);
+            return this;
+        }
+
+        public ProductPage AddingSupplier(ItemAdd item)
+        {
+            SupplierIdInput.SendKeys(item.selectSupplier);
+            return this;
+        }
+
+        public ProductPage AddingUnitPrice(ItemAdd item)
+        {
+            UnitPriceInput.SendKeys(item.selectPrice);
+            return this;
+        }
+
+        public ProductPage AddingQuantity(ItemAdd item)
+        {
+            QuantityPerUnitInput.SendKeys(item.selectQuantity);
+            return this;
+        }
+
+        public ProductPage AddingUnitsInStock(ItemAdd item)
+        {
+            UnitsInStockInput.SendKeys(item.selectInstock);
+            return this;
+        }
+
+        public ProductPage AddingUnitsOnOrder(ItemAdd item)
+        {
+            UnitsOnOrderInput.SendKeys(item.selectOnorder);
+            return this;
+        }
+
+        public ProductPage AddingReorderLevel(ItemAdd item)
+        {
+            ReorderLevelInput.SendKeys(item.selectReorder);
+            return this;
+        }
+
+        public AllproductsPage clickSubmitButton()
+        {
             new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
             return new AllproductsPage(driver);
         }

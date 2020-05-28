@@ -8,11 +8,11 @@ namespace Northwind_tests.service.ui
 {
     class ItemViewingService
     {
-        public static ProductPage ViewItem(string item, IWebDriver driver)
-        {
-            AllproductsPage allproductsPage = new AllproductsPage(driver);
-            return allproductsPage.ViewingItem(item);
+        //public static ProductPage ViewItem(string item, IWebDriver driver)
+        //{
+        //    AllproductsPage allproductsPage = new AllproductsPage(driver);
+        //    return allproductsPage.ViewingItem(item);
 
-        }
+        //}
     }
 }

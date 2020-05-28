@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Northwind_tests.business_object;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,16 @@ namespace Northwind_tests
 
         private IWebElement PasswordInput => driver.FindElement(By.XPath("//input[@id='Password']"));
                 
-        public HomePage AuthorizationPage(string login, string password)
+        public /*HomePage*/ LoginPage AuthorizationPage(LoginPassword user)
         {
-            NameInput.SendKeys(login);
-            PasswordInput.SendKeys(password);
+            NameInput.SendKeys(user.selectLogin);
+            PasswordInput.SendKeys(user.selectPassword);
+            //new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
+            //return new HomePage(driver);
+            return this;
+        }
+        public HomePage ClickSubmitButton()
+        {
             new Actions(driver).SendKeys(Keys.Enter).Build().Perform();
             return new HomePage(driver);
         }

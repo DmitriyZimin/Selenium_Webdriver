@@ -8,11 +8,11 @@ namespace Northwind_tests.service.ui
 {
     class OpenAllProductsService
     {
-        public static AllproductsPage Open(IWebDriver driver)
-        {
-            HomePage homePage = new HomePage(driver);
-            return homePage.Allproducts();
+        //public static AllproductsPage Open(IWebDriver driver)
+        //{
+        //    HomePage homePage = new HomePage(driver);
+        //    return homePage.Allproducts();
             
-        }
+        //}
     }
 }

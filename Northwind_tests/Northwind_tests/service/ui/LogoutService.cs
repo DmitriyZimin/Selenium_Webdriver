@@ -7,11 +7,11 @@ namespace Northwind_tests.service.ui
 {
     class LogoutService
     {
-        public static LogoutPage Logout(IWebDriver driver)
-        {
-            HomePage homePage = new HomePage(driver);
-            return homePage.Logout();
+        //public static LogoutPage Logout(IWebDriver driver)
+        //{
+        //    HomePage homePage = new HomePage(driver);
+        //    return homePage.Logout();
 
-        }
+        //}
     }
 }
