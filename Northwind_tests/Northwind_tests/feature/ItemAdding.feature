@@ -20,4 +20,4 @@
 		And I type in UnitsOnOrder field "5" quantity
 		And I type in ReorderLevel field "1" level
 		And I click on submit button to add an item
-		Then All products page should be opened with "All Products" header
+		Then All products page should contain "English tea" item

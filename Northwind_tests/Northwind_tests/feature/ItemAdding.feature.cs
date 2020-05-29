@@ -142,7 +142,7 @@ namespace Northwind_tests.Feature
   testRunner.And("I click on submit button to add an item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 23
-  testRunner.Then("All products page should be opened with \"All Products\" header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("All products page should contain \"English tea\" item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

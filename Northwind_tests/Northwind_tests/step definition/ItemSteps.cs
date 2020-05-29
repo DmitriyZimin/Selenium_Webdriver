@@ -100,10 +100,10 @@ namespace Northwind_tests.step_definition
             new ProductPage(driver).clickSubmitButton();
         }
 
-        [Then(@"All products page should be opened with ""(.*)"" header")]
-        public void ThenAllproductspageShouldBe(string allproductsHeader)
+        [Then(@"All products page should contain ""(.*)"" item")]
+        public void ThenAllproductspageShouldContainItem(string item)
         {
-            Assert.AreEqual(allproductsHeader, new AllproductsPage(driver).GetAllproductsheader());
+            Assert.IsTrue(new AllproductsPage(driver).CheckItemPresent(item));
         }
     }
 }

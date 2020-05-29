@@ -39,7 +39,7 @@ namespace Northwind_tests
             return new AllproductsPage(driver);
         }
 
-        public bool CheckItemNotPresent(string item)
+        public bool CheckItemPresent(string item)
         {
             try
             {
